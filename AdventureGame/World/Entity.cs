@@ -20,12 +20,12 @@ namespace AdventureGame.World
             Interpolate(Position);
         }
 
-        public virtual void Update(double dt)
+        public void Update(double dt)
         {
             DoUpdate(dt);
         }
 
-        public virtual void Render(double alpha)
+        public void Render(double alpha)
         {
             foreach (var v in interpolatedVars)
             {
@@ -43,12 +43,7 @@ namespace AdventureGame.World
         protected virtual void DoUpdate(double dt) { }
         protected virtual void DoRender(double alpha) { }
 
-        protected void Interpolate(InterpolatedFloat var)
-        {
-            interpolatedVars.Add(var);
-        }
-
-        protected void Interpolate(InterpolatedVector var)
+        protected void Interpolate(IInterpolatedVar var)
         {
             interpolatedVars.Add(var);
         }

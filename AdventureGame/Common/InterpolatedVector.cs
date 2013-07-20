@@ -8,6 +8,11 @@ namespace AdventureGame.Common
 {
     public class InterpolatedVector : IInterpolatedVar
     {
+        public InterpolatedVector(Vector2f vector)
+        {
+            Value = vector;
+        }
+
         public void PreUse(double alpha)
         {
             if (Value.X != curValue.X || Value.Y != curValue.Y)
