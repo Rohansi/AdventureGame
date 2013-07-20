@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using SFML.Graphics;
 using SFML.Window;
 
@@ -12,17 +13,39 @@ namespace AdventureGame
         static void Main(string[] args)
         {
             var window = new RenderWindow(new VideoMode(1280, 720), "AdventureGame", Styles.Close);
-            window.SetFramerateLimit(60);
+            var stopwatch = new Stopwatch();
 
             window.Closed += (sender, eventArgs) => window.Close();
+            window.SetFramerateLimit(60);
+            stopwatch.Start();
+
+            double thisTime = 0.0;
+            double lastTime = stopwatch.Elapsed.TotalSeconds;
+            double frameTime = 0.0;
+            double tickLength = 1 / 30.0;
+            double accumulator = 0.0;
 
             while (window.IsOpen())
             {
-                window.DispatchEvents();
+                thisTime = stopwatch.Elapsed.TotalSeconds;
+                frameTime = lastTime - thisTime;
+                lastTime = thisTime;
+
+                accumulator += frameTime;
+
+                while (accumulator >= tickLength)
+                {
+                    // Tick!
+                    accumulator -= tickLength;
+                }
 
                 window.Clear(Color.Black);
-
+                {
+                    // Render!
+                }
                 window.Display();
+
+                window.DispatchEvents();
             }
         }
     }
