@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\IInterpolatedVar.cs" />
+    <Compile Include="Common\InterpolatedFloat.cs" />
+    <Compile Include="Common\InterpolatedVector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
