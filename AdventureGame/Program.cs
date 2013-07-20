@@ -19,19 +19,13 @@ namespace AdventureGame
             window.SetFramerateLimit(60);
             stopwatch.Start();
 
-            double thisTime = 0.0;
-            double lastTime = stopwatch.Elapsed.TotalSeconds;
-            double frameTime = 0.0;
-            double tickLength = 1 / 30.0;
+            const double tickLength = 1 / 30.0;
             double accumulator = 0.0;
 
             while (window.IsOpen())
             {
-                thisTime = stopwatch.Elapsed.TotalSeconds;
-                frameTime = lastTime - thisTime;
-                lastTime = thisTime;
-
-                accumulator += frameTime;
+                accumulator += stopwatch.Elapsed.TotalSeconds;
+                stopwatch.Restart();
 
                 while (accumulator >= tickLength)
                 {
