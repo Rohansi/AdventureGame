@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AdventureGame.Common
 {
-    interface IInterpolatedVar
+    public interface IInterpolatedVar
     {
         void PreUse(double alpha);
         void PostUse();

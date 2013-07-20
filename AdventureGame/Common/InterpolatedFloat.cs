@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AdventureGame.Common
 {
-    class InterpolatedFloat : IInterpolatedVar
+    public class InterpolatedFloat : IInterpolatedVar
     {
         public void PreUse(double alpha)
         {

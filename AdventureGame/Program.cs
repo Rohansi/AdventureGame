@@ -19,8 +19,8 @@ namespace AdventureGame
             window.SetFramerateLimit(60);
             stopwatch.Start();
 
-            const double tickLength = 1 / 30.0;
             double accumulator = 0.0;
+            const double tickLength = 1 / 30.0;
 
             while (window.IsOpen())
             {

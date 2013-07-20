@@ -6,7 +6,7 @@ using SFML.Window;
 
 namespace AdventureGame.Common
 {
-    class InterpolatedVector : IInterpolatedVar
+    public class InterpolatedVector : IInterpolatedVar
     {
         public void PreUse(double alpha)
         {
